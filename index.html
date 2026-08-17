@@ -2,122 +2,636 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jing-Sheng Chen</title>
+  <meta name="description" content="Jing-Sheng Chen — Ph.D. student in Computer Science at National Taiwan University. Computer vision and deep learning." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet" />
   <style>
-    body {
-      font-family: "Segoe UI", sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f9f9f9;
-      color: #333;
-      line-height: 1.6;
+    :root {
+      --navy: #0a192f;
+      --ink: #1d2531;
+      --muted: #78828f;
+      --faint: #9aa3b0;
+      --soft: #5c6673;
+      --line: #e2e6eb;
+      --bg: #f7f8fa;
+      --card: #ffffff;
+      --accent: #1d4e89;
     }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: "Inter", "Noto Sans TC", "Segoe UI", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body[data-lang="zh"] { line-height: 1.85; }
+    body[data-lang="en"] .lang-zh { display: none; }
+    body[data-lang="zh"] .lang-en { display: none; }
+
+    /* ---------- header ---------- */
+
     header {
-      background: #0a192f;
-      color: white;
-      padding: 2rem 1rem;
+      background: var(--navy);
+      color: #fff;
+      padding: 3rem 1.25rem 2.75rem;
+      position: relative;
+    }
+
+    .header-inner {
+      max-width: 780px;
+      margin: 0 auto;
       display: flex;
       align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
       gap: 2rem;
-    }
-    .headshot {
-      border-radius: 100%;
-      width: 150px;
-      height: 150px;
-      object-fit: cover;
-    }
-    .header-text {
-      max-width: 500px;
+      flex-wrap: wrap;
+      justify-content: center;
       text-align: center;
     }
+
+    .headshot {
+      width: 132px;
+      height: 132px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid rgba(255, 255, 255, 0.18);
+    }
+
     .header-text h1 {
       margin: 0;
-      font-size: 2rem;
+      font-size: 1.95rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
     }
-    .header-text p {
-      font-size: 1.1rem;
-      margin-top: 0.5rem;
+
+    .header-text .subtitle {
+      margin: 0.45rem 0 0;
+      font-size: 1.02rem;
+      color: #c7d3e4;
     }
-    .container {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 0 1rem;
+
+    .header-links {
+      margin-top: 0.9rem;
+      display: flex;
+      gap: 1.1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      font-size: 0.88rem;
     }
+
+    .header-links a {
+      color: #9fc0e8;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+    }
+
+    .header-links a:hover { border-bottom-color: #9fc0e8; }
+
+    /* ---------- language switch ---------- */
+
+    .lang-switch {
+      position: absolute;
+      top: 1.1rem;
+      right: 1.25rem;
+      display: inline-flex;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .lang-switch button {
+      appearance: none;
+      background: transparent;
+      border: 0;
+      color: #c7d3e4;
+      font: inherit;
+      font-size: 0.8rem;
+      padding: 0.3rem 0.85rem;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .lang-switch button:hover { color: #fff; }
+    .lang-switch button[aria-pressed="true"] { background: #fff; color: var(--navy); }
+
+    /* ---------- layout ---------- */
+
+    main {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem 1rem;
+    }
+
+    section { margin-bottom: 2.75rem; }
+
     h2 {
-      color: #0a192f;
-      margin-top: 2rem;
-      border-bottom: 2px solid #ddd;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 0 0 1.1rem;
       padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--line);
     }
-    ul {
-      list-style: none;
-      padding: 0;
+
+    body[data-lang="zh"] h2 { letter-spacing: 0.05em; }
+
+    p { margin: 0 0 0.85rem; }
+
+    .lead {
+      color: var(--soft);
+      font-size: 0.95rem;
     }
-    li {
-      margin-bottom: 1rem;
+
+    /* ---------- entries ---------- */
+
+    .item {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 1.05rem 1.15rem;
+      margin-bottom: 0.85rem;
     }
-    .footer {
-      text-align: center;
-      padding: 2rem 1rem;
+
+    .item-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .title {
+      font-weight: 600;
+      font-size: 1.06rem;
+      color: var(--navy);
+      letter-spacing: -0.005em;
+      line-height: 1.4;
+    }
+
+    .date {
+      font-size: 0.78rem;
+      color: var(--faint);
+      white-space: nowrap;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .org {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: 0.15rem;
+    }
+
+    .note {
+      font-size: 0.8rem;
+      color: var(--faint);
+      margin-top: 0.15rem;
+    }
+
+    .desc {
       font-size: 0.9rem;
-      color: #888;
+      line-height: 1.7;
+      color: var(--soft);
+      margin: 0.55rem 0 0;
+    }
+
+    body[data-lang="zh"] .desc { line-height: 1.85; }
+
+    .item a { color: var(--accent); }
+
+    /* ---------- competitions ---------- */
+
+    .result {
+      display: inline-block;
+      font-size: 0.76rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      padding: 0.12rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: #eef2f7;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    .result.award {
+      background: #fdf3e0;
+      border-color: #f0dcb4;
+      color: #8a5a10;
+    }
+
+    /* ---------- publications ---------- */
+
+    .pub {
+      border-left: 2px solid var(--line);
+      padding-left: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .pub .pub-title {
+      font-weight: 600;
+      font-size: 0.98rem;
+      color: var(--navy);
+      line-height: 1.45;
+    }
+
+    .pub .authors {
+      font-size: 0.83rem;
+      color: var(--faint);
+      margin-top: 0.25rem;
+    }
+
+    .pub .authors u { text-decoration: none; font-weight: 600; color: var(--soft); }
+
+    .pub .venue {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 0.15rem;
+    }
+
+    /* ---------- skills ---------- */
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+
+    .tag {
+      font-size: 0.85rem;
+      padding: 0.22rem 0.7rem;
+      border-radius: 6px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      color: #3d4753;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1.25rem 2.5rem;
+      font-size: 0.82rem;
+      color: #9aa4b1;
+    }
+
+    @media (max-width: 560px) {
+      header { padding-top: 3.6rem; }
+      .header-text h1 { font-size: 1.6rem; }
+      .headshot { width: 110px; height: 110px; }
+      .date { white-space: normal; }
     }
   </style>
 </head>
-<body>
+
+<body data-lang="en">
 
   <header>
-    <img src="headshot.jpg" alt="Jing-Sheng Chen" class="headshot" />
-    <div class="header-text">
-      <h1>Jing-Sheng Chen</h1>
-      <p>Ph.D. Student @ National Taiwan University (NTU)</p>
+    <div class="lang-switch" role="group" aria-label="Language">
+      <button type="button" data-set-lang="en" aria-pressed="true">EN</button>
+      <button type="button" data-set-lang="zh" aria-pressed="false">中文</button>
+    </div>
+
+    <div class="header-inner">
+      <img src="headshot.jpg" alt="Jing-Sheng Chen" class="headshot" />
+      <div class="header-text">
+        <h1><span class="lang-en">Jing-Sheng Chen</span><span class="lang-zh">陳靖升</span></h1>
+        <p class="subtitle">
+          <span class="lang-en">Ph.D. Student, Computer Science &middot; National Taiwan University (NTU)</span>
+          <span class="lang-zh">國立臺灣大學 資訊工程學系 博士班</span>
+        </p>
+        <div class="header-links">
+          <a href="https://github.com/lplpp163">GitHub</a>
+          <a href="https://www.instagram.com/ezquiz.tcte/">EZQuiz</a>
+        </div>
+      </div>
     </div>
   </header>
 
-  <div class="container">
-    <h2>About</h2>
-    <p>
-      Graduated with an MS degree in Computer Science from the National Taiwan University of Science and Technology (NTUST).
-      Specialized in the field of Computer Vision and Deep Learning.
-    </p>
+  <main>
 
-    <h2>Education</h2>
-    <ul>
-      <li>
-        <strong>National Taiwan University</strong><br />
-        Ph.D., Department of Computer Science<br />
-        <em>2025</em>
-      </li>
-      <li>
-        <strong>National Taiwan University of Science and Technology</strong><br />
-        M.S., Department of Artificial Intelligence and Technology<br />
-        Advised by Prof. Kai-Lung Hua<br />
-        <em>2022 - 2025</em>
-      </li>
-      <li>
-        <strong>National Taiwan University of Science and Technology</strong><br />
-        B.S., Department of Computer Science and Information Engineering<br />
-        Advised by Prof. Rafael Kaliski<br />
-        <em>2017 - 2021</em>
-      </li>
-    </ul>
+    <!-- ============ About ============ -->
+    <section>
+      <h2><span class="lang-en">About</span><span class="lang-zh">關於</span></h2>
+      <p class="lead lang-en">
+        I am a Ph.D. student in Computer Science at National Taiwan University (NTU). I received my M.S. from the
+        Graduate Institute of A.I. Cross-disciplinary Technology at National Taiwan University of Science and
+        Technology (NTUST), and spent an exchange year at Zhejiang University. My work is in computer vision and
+        deep learning, covering depth estimation for UAVs, perception for self-driving cars, and medical image
+        tracking. I also teach short courses on applied AI tools.
+      </p>
+      <p class="lead lang-zh">國立臺灣大學資訊工程學系博士班在學，碩士畢業於臺灣科技大學人工智慧跨域科技研究所，並曾赴浙江大學交換一年。研究領域為電腦視覺與深度學習，做過無人機深度估測、自駕車感知與醫療影像追蹤。近期也開設 AI 工具應用的短期課程。</p>
+    </section>
 
-    <h2>Publications</h2>
-    <ul>
-      <li>
-        <em>Real-Time Tracking of Laryngeal Motion via the Surface Depth-Sensing Technique for Radiotherapy in Laryngeal Cancer Patients</em><br />
-        Lee, Wan-Ju, Leu, Yi-Shing, <u>Chen, Jing-Sheng</u>, Dai, Kun-Yao, Hou, Tien-Chi, Chang, Chung-Ting, Li, Chi-Jung, Hua, Kai-Lung, Chen, Yu-Jen<br />
-        <strong>Bioengineering 2023</strong>
-      </li>
-    </ul>
-  </div>
+    <!-- ============ Education ============ -->
+    <section>
+      <h2><span class="lang-en">Education</span><span class="lang-zh">學歷</span></h2>
 
-  <div class="footer">
-    &copy; 2025 Jing-Sheng Chen
-  </div>
+      <div class="item">
+        <div class="item-head">
+          <span class="title lang-en">National Taiwan University</span>
+          <span class="title lang-zh">國立臺灣大學</span>
+          <span class="date">2025 &ndash;</span>
+        </div>
+        <div class="org">
+          <span class="lang-en">Ph.D., Department of Computer Science and Information Engineering</span>
+          <span class="lang-zh">資訊工程學系 博士班</span>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="item-head">
+          <span class="title lang-en">Zhejiang University</span>
+          <span class="title lang-zh">浙江大學</span>
+          <span class="date">2024 &ndash; 2025</span>
+        </div>
+        <div class="org">
+          <span class="lang-en">Exchange Program, College of Computer Science and Technology</span>
+          <span class="lang-zh">計算機科學與技術學院 交換學生</span>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="item-head">
+          <span class="title lang-en">National Taiwan University of Science and Technology</span>
+          <span class="title lang-zh">國立臺灣科技大學</span>
+          <span class="date">2022 &ndash; 2025</span>
+        </div>
+        <div class="org">
+          <span class="lang-en">M.S., Graduate Institute of A.I. Cross-disciplinary Technology</span>
+          <span class="lang-zh">人工智慧跨域科技研究所 碩士</span>
+        </div>
+        <div class="note">
+          <span class="lang-en">Advised by Prof. Kai-Lung Hua</span>
+          <span class="lang-zh">指導教授：花凱龍</span>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="item-head">
+          <span class="title lang-en">National Taiwan University of Science and Technology</span>
+          <span class="title lang-zh">國立臺灣科技大學</span>
+          <span class="date">2017 &ndash; 2021</span>
+        </div>
+        <div class="org">
+          <span class="lang-en">B.S., Department of Computer Science and Information Engineering</span>
+          <span class="lang-zh">資訊工程系 學士</span>
+        </div>
+        <div class="note">
+          <span class="lang-en">Advised by Prof. Rafael Kaliski</span>
+          <span class="lang-zh">指導教授：Rafael Kaliski</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Projects ============ -->
+    <section>
+      <h2><span class="lang-en">Project Experience</span><span class="lang-zh">專案經歷</span></h2>
+
+      <div class="item">
+        <div class="item-head">
+          <span class="title lang-en">Depth Estimation for UAVs</span>
+          <span class="title lang-zh">無人機深度估測</span>
+          <span class="date">2023.05 &ndash; 2024.01</span>
+        </div>
+        <div class="org">
+          <span class="lang-en">Industrial Technology Research Institute (ITRI)</span>
+          <span class="lang-zh">工業技術研究院</span>
+        </div>
+        <p class="desc lang-en">
+          Panoramic depth estimation for UAV obstacle avoidance. Handled synchronization and calibration between
+          the camera and the IMU, tuned the feature-point algorithm for more stable positioning, and got depth
+          estimation running on low-power onboard devices.
+        </p>
+        <p class="desc lang-zh">全景影像深度估測，用於無人機避障。處理相機與 IMU 之間的同步與校正問題，調整特徵點演算法以穩定定位，並讓深度估測能在低功耗的機上裝置執行。</p>
+      </div>
+
+      <div class="item">
+        <div class="item-head">
+          <span class="title lang-en">Deep Learning Depth-from-Focus</span>
+          <span class="title lang-zh">深度學習 Depth-from-Focus</span>
+          <span class="date">2022.10 &ndash; 2024.06</span>
+        </div>
+        <div class="org">
+          <span class="lang-en">Kulicke &amp; Soffa</span>
+          <span class="lang-zh">Kulicke &amp; Soffa</span>
+        </div>
+        <p class="desc lang-en">
+          Trained a depth-from-focus model that takes a stack of images captured at different focal distances and
+          outputs a depth map together with an all-in-focus image. The architecture work from this project became
+          a manuscript submitted to IEEE MultiMedia.
+        </p>
+        <p class="desc lang-zh">以不同對焦距離拍攝的影像堆疊為輸入，訓練深度學習模型輸出深度圖與全對焦影像。此專案的模型架構後續整理成論文，投稿 IEEE MultiMedia。</p>
+      </div>
+
+      <div class="item">
+        <div class="item-head">
+          <span class="title lang-en">Self-Driving Car Perception</span>
+          <span class="title lang-zh">自駕車感知系統</span>
+          <span class="date">2022.07 &ndash; 2023.03</span>
+        </div>
+        <div class="org">
+          <span class="lang-en">Micromax International Corp.</span>
+          <span class="lang-zh">Micromax International Corp.</span>
+        </div>
+        <p class="desc lang-en">
+          Developed self-driving functions on ROS, with adaptive cruise control as the main focus. Integrated
+          millimeter-wave radar with deep-learning object detection to keep distance during vehicle following.
+        </p>
+        <p class="desc lang-zh">在 ROS 平台上開發自駕車功能，主要負責主動車距控制（ACC）。整合毫米波雷達與深度學習物件偵測，用於跟車時的車距判斷與控制。</p>
+      </div>
+
+      <div class="item">
+        <div class="item-head">
+          <span class="title lang-en">Real-Time 3D Pose Estimation</span>
+          <span class="title lang-zh">即時 3D 人體姿態估測</span>
+          <span class="date">2020.02 &ndash; 2021.01</span>
+        </div>
+        <div class="org">
+          <span class="lang-en">National Taiwan University of Science and Technology</span>
+          <span class="lang-zh">國立臺灣科技大學</span>
+        </div>
+        <p class="desc lang-en">
+          Undergraduate project. Lightweight deep models paired with a ToF camera for real-time 3D pose
+          estimation, with the coordinate stream synchronized into Unity to drive a character skeleton.
+        </p>
+        <p class="desc lang-zh">大學專題。使用輕量化深度模型搭配 ToF 相機做即時 3D 姿態估測，並將座標資料同步至 Unity，驅動角色骨架顯示。</p>
+      </div>
+
+      <div class="item">
+        <div class="item-head">
+          <span class="title lang-en">EZQuiz &mdash; Exam Practice App</span>
+          <span class="title lang-zh">EZQuiz 統測練習 App</span>
+          <span class="date">2020.09 &ndash;</span>
+        </div>
+        <div class="org">
+          <span class="lang-en">Founder &amp; Developer</span>
+          <span class="lang-zh">創辦人／開發者</span>
+        </div>
+        <p class="desc lang-en">
+          An Android quiz app for vocational high school students preparing for the national entrance exam, built
+          in Kotlin. Over 5,000 downloads, with an accompanying community where I run AI-assisted study material.
+          <a href="https://play.google.com/store/apps/details?id=com.ezquiz.tcteking">Google Play</a>
+        </p>
+        <p class="desc lang-zh">以 Kotlin 開發的 Android 題庫練習 App，對象是準備統測的高職學生，下載量超過 5,000 次，並經營搭配的學習社群，導入 AI 工具製作教材。<a href="https://play.google.com/store/apps/details?id=com.ezquiz.tcteking">Google Play</a></p>
+      </div>
+    </section>
+
+    <!-- ============ Teaching ============ -->
+    <section>
+      <h2><span class="lang-en">Teaching</span><span class="lang-zh">教學經歷</span></h2>
+
+      <div class="item">
+        <div class="item-head">
+          <span class="title lang-en">Instructor, Applied AI Short Courses</span>
+          <span class="title lang-zh">AI 應用短期專班 講師</span>
+          <span class="date">2026 &ndash;</span>
+        </div>
+        <div class="org">
+          <span class="lang-en">Information Systems Training Program, National Taiwan University</span>
+          <span class="lang-zh">國立臺灣大學 資訊系統訓練班</span>
+        </div>
+        <p class="desc lang-en">
+          Design and teach two-day, ten-hour hands-on courses on applied AI tools, open to students of any
+          background with no programming prerequisite. Topics include building web pages with AI coding
+          assistants and AI-assisted image and copywriting, with each class ending in a finished piece of work.
+        </p>
+        <p class="desc lang-zh">設計並教授兩天、共 10 小時的 AI 工具實作課程，不限背景與年齡，沒有程式基礎也能參加。主題包含用 AI 工具做網頁（vibe coding）與 AI 圖文創作，課程以完成一件成品為目標。</p>
+      </div>
+    </section>
+
+    <!-- ============ Competitions ============ -->
+    <section>
+      <h2><span class="lang-en">Competitions</span><span class="lang-zh">競賽經歷</span></h2>
+
+      <div class="item">
+        <div class="item-head">
+          <span class="title lang-en">4th President Chain Store Group Business Competition</span>
+          <span class="title lang-zh">第四屆統一超商關係企業商業競賽</span>
+          <span class="result award">
+            <span class="lang-en">Runner-up</span><span class="lang-zh">亞軍</span>
+          </span>
+        </div>
+        <div class="note">2026</div>
+      </div>
+
+      <div class="item">
+        <div class="item-head">
+          <span class="title lang-en">18th HIWIN Intelligent Robotic Arm Implementation Contest &mdash; Application Division</span>
+          <span class="title lang-zh">第十八屆上銀智慧機械手實作競賽 &mdash; 應用組</span>
+          <span class="result">
+            <span class="lang-en">Finalist</span><span class="lang-zh">入圍決賽</span>
+          </span>
+        </div>
+        <div class="note">2026</div>
+      </div>
+
+      <div class="item">
+        <div class="item-head">
+          <span class="title lang-en">Taiwan Generative AI Application Hackathon</span>
+          <span class="title lang-zh">雲湧智生：臺灣生成式 AI 應用黑客松</span>
+          <span class="result">
+            <span class="lang-en">Finalist</span><span class="lang-zh">入圍決賽</span>
+          </span>
+        </div>
+        <div class="note">2026</div>
+        <p class="desc lang-en">
+          Two-day final round building a generative-AI minimum viable product from a corporate brief. I worked on
+          the model side: model selection, API integration, and tuning output quality.
+        </p>
+        <p class="desc lang-zh">決賽為兩天內依企業出題做出生成式 AI 的最小可行產品。我負責模型與 AI 功能開發，包含選模、串接與輸出品質調整。</p>
+      </div>
+    </section>
+
+    <!-- ============ Publications ============ -->
+    <section>
+      <h2><span class="lang-en">Publications</span><span class="lang-zh">論文發表</span></h2>
+
+      <div class="pub">
+        <div class="pub-title">Unraveling Complex Aberration Cues with Transformer</div>
+        <div class="authors"><u>Chen, Jing-Sheng</u>, Lin, Yu-Xiang, Hua, Kai-Lung</div>
+        <div class="venue">
+          <span class="lang-en">Submitted to IEEE MultiMedia</span>
+          <span class="lang-zh">投稿 IEEE MultiMedia</span>
+        </div>
+      </div>
+
+      <div class="pub">
+        <div class="pub-title">
+          Real-Time Tracking of Laryngeal Motion via the Surface Depth-Sensing Technique for Radiotherapy in
+          Laryngeal Cancer Patients
+        </div>
+        <div class="authors">
+          Lee, Wan-Ju, Leu, Yi-Shing, <u>Chen, Jing-Sheng</u>, Dai, Kun-Yao, Hou, Tien-Chi, Chang, Chung-Ting,
+          Li, Chi-Jung, Hua, Kai-Lung, Chen, Yu-Jen
+        </div>
+        <div class="venue">Bioengineering, 2023</div>
+      </div>
+    </section>
+
+    <!-- ============ Skills ============ -->
+    <section>
+      <h2><span class="lang-en">Skills</span><span class="lang-zh">技能</span></h2>
+      <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">C / C++</span>
+        <span class="tag">PyTorch</span>
+        <span class="tag">Deep Learning</span>
+        <span class="tag">Computer Vision</span>
+        <span class="tag">ROS</span>
+        <span class="tag">Android (Kotlin)</span>
+        <span class="tag">Unity</span>
+        <span class="tag">Git</span>
+      </div>
+      <p class="desc lang-en" style="margin-top: 0.9rem;">
+        Chinese (native) &middot; English (TOEIC 895)
+      </p>
+      <p class="desc lang-zh" style="margin-top: 0.9rem;">
+        中文（母語）&middot; 英文（TOEIC 895）
+      </p>
+    </section>
+
+  </main>
+
+  <footer>
+    <span class="lang-en">&copy; 2026 Jing-Sheng Chen</span>
+    <span class="lang-zh">&copy; 2026 陳靖升</span>
+  </footer>
+
+  <script>
+    (function () {
+      var body = document.body;
+      var buttons = document.querySelectorAll('[data-set-lang]');
+
+      var TITLES = { en: 'Jing-Sheng Chen', zh: '陳靖升' };
+
+      function setLang(lang) {
+        body.setAttribute('data-lang', lang);
+        document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : 'en';
+        document.title = TITLES[lang];
+        buttons.forEach(function (btn) {
+          btn.setAttribute('aria-pressed', String(btn.dataset.setLang === lang));
+        });
+        try { localStorage.setItem('lang', lang); } catch (e) {}
+      }
+
+      buttons.forEach(function (btn) {
+        btn.addEventListener('click', function () { setLang(btn.dataset.setLang); });
+      });
+
+      var saved;
+      try { saved = localStorage.getItem('lang'); } catch (e) {}
+      setLang(saved === 'zh' ? 'zh' : 'en');
+    })();
+  </script>
 
 </body>
 </html>
