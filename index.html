@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jing-Sheng Chen</title>
-  <meta name="description" content="Jing-Sheng Chen — Ph.D. student in Computer Science at National Taiwan University. Computer vision and deep learning." />
+  <meta name="description" content="Jing-Sheng Chen — Ph.D. student in Computer Science at National Taiwan University, working on consistent long-form video generation and depth estimation." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet" />
@@ -253,6 +253,8 @@
 
     .pub .authors u { text-decoration: none; font-weight: 600; color: var(--soft); }
 
+    .pub .venue a { color: var(--accent); }
+
     .pub .venue {
       font-size: 0.82rem;
       color: var(--muted);
@@ -322,13 +324,14 @@
     <section>
       <h2><span class="lang-en">About</span><span class="lang-zh">關於</span></h2>
       <p class="lead lang-en">
-        I am a Ph.D. student in Computer Science at National Taiwan University (NTU). I received my M.S. from the
-        Graduate Institute of A.I. Cross-disciplinary Technology at National Taiwan University of Science and
-        Technology (NTUST), and spent an exchange year at Zhejiang University. My work is in computer vision and
-        deep learning, covering depth estimation for UAVs, perception for self-driving cars, and medical image
-        tracking. I also teach short courses on applied AI tools.
+        I am a Ph.D. student in Computer Science at National Taiwan University (NTU), advised by Prof. Chu-Song Chen.
+        My current research is long-form video generation that keeps places and characters consistent across scene
+        cuts. I received my M.S. from National Taiwan University of Science and Technology (NTUST), where I worked on
+        depth from focus, and spent an exchange year at Zhejiang University. Before the Ph.D. I worked on depth
+        estimation and localization for drones, adaptive cruise control for a self-driving car, and medical motion
+        tracking, and I have built and run the EZQuiz exam-practice app since 2020.
       </p>
-      <p class="lead lang-zh">國立臺灣大學資訊工程學系博士班在學，碩士畢業於臺灣科技大學人工智慧跨域科技研究所，並曾赴浙江大學交換一年。研究領域為電腦視覺與深度學習，做過無人機深度估測、自駕車感知與醫療影像追蹤。近期也開設 AI 工具應用的短期課程。</p>
+      <p class="lead lang-zh">國立臺灣大學資訊工程學系博士班在學，指導教授為陳祝嵩老師，目前研究長篇影片生成：故事換到別的場景再回來時，地點與角色仍要前後一致。碩士畢業於臺灣科技大學人工智慧跨域科技研究所，研究 Depth from Focus（用不同對焦距離拍攝的多張影像推算深度），期間曾赴浙江大學交換一年。進博班前做過無人機的深度估測與定位、自駕車的主動車距控制，以及醫療影像的動作追蹤；2020 年起獨立開發並經營 EZQuiz 統測練習 App。</p>
     </section>
 
     <!-- ============ Education ============ -->
@@ -344,6 +347,10 @@
         <div class="org">
           <span class="lang-en">Ph.D., Department of Computer Science and Information Engineering</span>
           <span class="lang-zh">資訊工程學系 博士班</span>
+        </div>
+        <div class="note">
+          <span class="lang-en">Advised by Prof. Chu-Song Chen</span>
+          <span class="lang-zh">指導教授：陳祝嵩</span>
         </div>
       </div>
 
@@ -394,76 +401,81 @@
 
     <!-- ============ Projects ============ -->
     <section>
-      <h2><span class="lang-en">Project Experience</span><span class="lang-zh">專案經歷</span></h2>
+      <h2><span class="lang-en">Research</span><span class="lang-zh">研究</span></h2>
 
       <div class="item">
         <div class="item-head">
-          <span class="title lang-en">Depth Estimation for UAVs</span>
-          <span class="title lang-zh">無人機深度估測</span>
-          <span class="date">2023.05 &ndash; 2024.01</span>
+          <span class="title lang-en">Consistent Long-Form Video Generation</span>
+          <span class="title lang-zh">跨場景一致的長篇影片生成</span>
+          <span class="date">2025 &ndash;</span>
         </div>
         <div class="org">
-          <span class="lang-en">Industrial Technology Research Institute (ITRI)</span>
-          <span class="lang-zh">工業技術研究院</span>
+          <span class="lang-en">National Taiwan University</span>
+          <span class="lang-zh">國立臺灣大學</span>
         </div>
-        <p class="desc lang-en">
-          Panoramic depth estimation for UAV obstacle avoidance. Handled synchronization and calibration between
-          the camera and the IMU, tuned the feature-point algorithm for more stable positioning, and got depth
-          estimation running on low-power onboard devices.
-        </p>
-        <p class="desc lang-zh">全景影像深度估測，用於無人機避障。處理相機與 IMU 之間的同步與校正問題，調整特徵點演算法以穩定定位，並讓深度估測能在低功耗的機上裝置執行。</p>
+        <p class="desc lang-en">Ph.D. research. Current video models make convincing short clips but lose track of a story across scene cuts: a location changes while it is off screen, a character returns holding different things. I am building a 3D scene representation that records places, objects and character states, which later shots can query and update, and using it to condition video generation.</p>
+        <p class="desc lang-zh">博士班研究。現有的影片生成模型能做出擬真的短片，但故事一換場景就容易接不上：某個地點在畫面外發生了變化，或角色帶著不同的東西回到畫面。我在做一套記錄地點、物件與角色狀態的三維場景表示，讓後面的鏡頭可以查詢、更新它，再用它來控制影片生成。</p>
       </div>
 
       <div class="item">
         <div class="item-head">
-          <span class="title lang-en">Deep Learning Depth-from-Focus</span>
-          <span class="title lang-zh">深度學習 Depth-from-Focus</span>
+          <span class="title lang-en">Deep Depth from Focus with Transformer</span>
+          <span class="title lang-zh">以 Transformer 做 Depth from Focus 深度估測</span>
           <span class="date">2022.10 &ndash; 2024.06</span>
         </div>
         <div class="org">
-          <span class="lang-en">Kulicke &amp; Soffa</span>
-          <span class="lang-zh">Kulicke &amp; Soffa</span>
+          <span class="lang-en">Kulicke &amp; Soffa, industry&ndash;academia project</span>
+          <span class="lang-zh">Kulicke &amp; Soffa 產學合作</span>
         </div>
-        <p class="desc lang-en">
-          Trained a depth-from-focus model that takes a stack of images captured at different focal distances and
-          outputs a depth map together with an all-in-focus image. The architecture work from this project became
-          a manuscript submitted to IEEE MultiMedia.
-        </p>
-        <p class="desc lang-zh">以不同對焦距離拍攝的影像堆疊為輸入，訓練深度學習模型輸出深度圖與全對焦影像。此專案的模型架構後續整理成論文，投稿 IEEE MultiMedia。</p>
+        <p class="desc lang-en">Recovering the 3D structure of circuit boards from multi-focus factory captures to locate glue-dispensing points. The 1.2M-parameter Transformer model cuts depth error by 48% against the best published method on the real-world DDFF 12-Scene benchmark, and mixed-precision inference brings it from 188 ms to 10 ms. The paper is in final revision at IEEE MultiMedia. <a href="https://github.com/lplpp163/DDFT">Code</a></p>
+        <p class="desc lang-zh">在工廠用不同對焦距離拍攝電路板，從這組影像推算出板子的立體結構，找出點膠位置。模型以 Transformer 為核心，約 120 萬個參數；在真實拍攝的 DDFF 12-Scene 資料集上，深度誤差比先前最好的方法低 48%，改用混合精度推論後，單張推論時間從 188 毫秒降到 10 毫秒。論文已進入 IEEE MultiMedia 最終修訂階段。<a href="https://github.com/lplpp163/DDFT">程式碼</a></p>
       </div>
 
       <div class="item">
         <div class="item-head">
-          <span class="title lang-en">Self-Driving Car Perception</span>
-          <span class="title lang-zh">自駕車感知系統</span>
+          <span class="title lang-en">Larynx Motion Tracking for Radiotherapy</span>
+          <span class="title lang-zh">喉癌放射治療的喉部動作追蹤</span>
+          <span class="date">2022 &ndash; 2023</span>
+        </div>
+        <div class="org">
+          <span class="lang-en">with MacKay Memorial Hospital</span>
+          <span class="lang-zh">與馬偕紀念醫院合作</span>
+        </div>
+        <p class="desc lang-en">Wrote the deep-learning tracker that follows the larynx in depth-camera video while patients swallow. Its motion measurements were used in a prospective study of 7 patients to help set radiotherapy margins (Bioengineering, 2023).</p>
+        <p class="desc lang-zh">負責程式：用深度學習在深度相機影片中追蹤病人吞嚥時的喉部位置。量到的移動距離用在一項 7 位病人的前瞻性研究，協助醫師設定放射治療的照射範圍，成果發表於 Bioengineering（2023）。</p>
+      </div>
+    </section>
+
+    <!-- ============ Projects ============ -->
+    <section>
+      <h2><span class="lang-en">Projects</span><span class="lang-zh">專案經歷</span></h2>
+
+      <div class="item">
+        <div class="item-head">
+          <span class="title lang-en">Drone Obstacle Avoidance</span>
+          <span class="title lang-zh">無人機避障</span>
+          <span class="date">2023.05 &ndash; 2024.01</span>
+        </div>
+        <div class="org">
+          <span class="lang-en">ITRI, with NTU, NTHU and NTUST</span>
+          <span class="lang-zh">工業技術研究院，與臺大、清大、臺科大合作</span>
+        </div>
+        <p class="desc lang-en">Moved MiDaS depth estimation from a Python prototype to C++ on an NVIDIA Jetson Orin Nano through ONNX, so the drone could estimate obstacle distance on board. Tuned the VINS-Fusion localization system, including camera&ndash;IMU time synchronization and calibration. Also evaluated panoramic image stitching, which was too slow for the onboard computer.</p>
+        <p class="desc lang-zh">把單鏡頭深度估測模型 MiDaS 從 Python 原型轉成 C++，經 ONNX 部署到 NVIDIA Jetson Orin Nano，讓無人機能在機上估計障礙物距離。調整開源定位系統 VINS-Fusion，包含相機與 IMU 的時間同步與校正。也評估過全景影像拼接，但速度太慢，無法在機上即時運作。</p>
+      </div>
+
+      <div class="item">
+        <div class="item-head">
+          <span class="title lang-en">Adaptive Cruise Control</span>
+          <span class="title lang-zh">自駕車主動車距控制</span>
           <span class="date">2022.07 &ndash; 2023.03</span>
         </div>
         <div class="org">
           <span class="lang-en">Micromax International Corp.</span>
           <span class="lang-zh">Micromax International Corp.</span>
         </div>
-        <p class="desc lang-en">
-          Developed self-driving functions on ROS, with adaptive cruise control as the main focus. Integrated
-          millimeter-wave radar with deep-learning object detection to keep distance during vehicle following.
-        </p>
-        <p class="desc lang-zh">在 ROS 平台上開發自駕車功能，主要負責主動車距控制（ACC）。整合毫米波雷達與深度學習物件偵測，用於跟車時的車距判斷與控制。</p>
-      </div>
-
-      <div class="item">
-        <div class="item-head">
-          <span class="title lang-en">Real-Time 3D Pose Estimation</span>
-          <span class="title lang-zh">即時 3D 人體姿態估測</span>
-          <span class="date">2020.02 &ndash; 2021.01</span>
-        </div>
-        <div class="org">
-          <span class="lang-en">National Taiwan University of Science and Technology</span>
-          <span class="lang-zh">國立臺灣科技大學</span>
-        </div>
-        <p class="desc lang-en">
-          Undergraduate project. Lightweight deep models paired with a ToF camera for real-time 3D pose
-          estimation, with the coordinate stream synchronized into Unity to drive a character skeleton.
-        </p>
-        <p class="desc lang-zh">大學專題。使用輕量化深度模型搭配 ToF 相機做即時 3D 姿態估測，並將座標資料同步至 Unity，驅動角色骨架顯示。</p>
+        <p class="desc lang-en">Built adaptive cruise control on ROS in C++ and Python. Combined millimeter-wave radar with a YOLO camera detector accelerated by TensorRT, filtered the sparse and noisy radar points to pick out and track the car ahead, and tested on public roads.</p>
+        <p class="desc lang-zh">在 ROS 上用 C++ 與 Python 開發主動車距控制（ACC）。結合毫米波雷達與以 TensorRT 加速的 YOLO 物件偵測；雷達點少、雜訊多，我負責濾除雜訊、找出前車並持續追蹤，並實際上路測試。</p>
       </div>
 
       <div class="item">
@@ -473,15 +485,25 @@
           <span class="date">2020.09 &ndash;</span>
         </div>
         <div class="org">
-          <span class="lang-en">Founder &amp; Developer</span>
-          <span class="lang-zh">創辦人／開發者</span>
+          <span class="lang-en">Founder &amp; sole developer</span>
+          <span class="lang-zh">創辦人／獨立開發者</span>
         </div>
-        <p class="desc lang-en">
-          An Android quiz app for vocational high school students preparing for the national entrance exam, built
-          in Kotlin. Over 5,000 downloads, with an accompanying community where I run AI-assisted study material.
-          <a href="https://play.google.com/store/apps/details?id=com.ezquiz.tcteking">Google Play</a>
-        </p>
-        <p class="desc lang-zh">以 Kotlin 開發的 Android 題庫練習 App，對象是準備統測的高職學生，下載量超過 5,000 次，並經營搭配的學習社群，導入 AI 工具製作教材。<a href="https://play.google.com/store/apps/details?id=com.ezquiz.tcteking">Google Play</a></p>
+        <p class="desc lang-en">A question-bank app for vocational high school students preparing for the national entrance exam, with over 5,000 downloads; monthly active users rise from about 400 to 1,800 before each April exam. Rewrote the original Kotlin app in Flutter so one codebase serves Android and iOS, with an encrypted question bank on Cloudflare and a leaderboard on Supabase. <a href="https://play.google.com/store/apps/details?id=com.ezquiz.tcteking">Google Play</a></p>
+        <p class="desc lang-zh">給準備統測的高職學生使用的題庫練習 App，下載超過 5,000 次；每月活躍使用者平常約 400 人，四月考前會升到約 1,800 人。原本以 Kotlin 開發，後來用 Flutter 重寫，一份程式同時支援 Android 與 iOS；題庫加密後放在 Cloudflare，排行榜使用 Supabase。<a href="https://play.google.com/store/apps/details?id=com.ezquiz.tcteking">Google Play</a></p>
+      </div>
+
+      <div class="item">
+        <div class="item-head">
+          <span class="title lang-en">AIoT Remote Healthcare: Real-Time 3D Pose</span>
+          <span class="title lang-zh">AIoT 遠距醫療：即時 3D 姿態估測</span>
+          <span class="date">2020.02 &ndash; 2021.01</span>
+        </div>
+        <div class="org">
+          <span class="lang-en">Undergraduate capstone, NTUST</span>
+          <span class="lang-zh">臺科大大學專題</span>
+        </div>
+        <p class="desc lang-en">Ran pose estimation at 14 FPS on an NVIDIA Jetson Nano (OpenPose ran at 5 FPS), combined the 2D keypoints with ToF depth to get 3D joints, and sent only the keypoints to a Unity avatar over UDP, cutting traffic from about 100 KB/s of video to 6 KB/s.</p>
+        <p class="desc lang-zh">在 NVIDIA Jetson Nano 上以每秒 14 幀做人體姿態估測（OpenPose 只有每秒 5 幀），把 2D 關節點和 ToF 深度相機的資料結合成 3D 座標，再用 UDP 只傳關節點給 Unity 角色，傳輸量從傳影像的每秒約 100 KB 降到 6 KB。</p>
       </div>
     </section>
 
@@ -532,6 +554,8 @@
           </span>
         </div>
         <div class="note">2026</div>
+        <p class="desc lang-en">Programmed a robotic arm for billiards and record-handling tasks and designed a custom end effector.</p>
+        <p class="desc lang-zh">負責程式開發，控制機械手臂完成撞球與搬運唱片等任務，並自行設計末端夾具。</p>
       </div>
 
       <div class="item">
@@ -556,11 +580,11 @@
       <h2><span class="lang-en">Publications</span><span class="lang-zh">論文發表</span></h2>
 
       <div class="pub">
-        <div class="pub-title">Unraveling Complex Aberration Cues with Transformer</div>
-        <div class="authors"><u>Chen, Jing-Sheng</u>, Lin, Yu-Xiang, Hua, Kai-Lung</div>
+        <div class="pub-title">Deep Depth from Focus with Transformer</div>
+        <div class="authors"><u>Chen, Jing-Sheng</u>, Lin, Yong-Xiang, Hua, Kai-Lung</div>
         <div class="venue">
-          <span class="lang-en">Submitted to IEEE MultiMedia</span>
-          <span class="lang-zh">投稿 IEEE MultiMedia</span>
+          <span class="lang-en">IEEE MultiMedia, in final revision &middot; <a href="https://github.com/lplpp163/DDFT">Code</a></span>
+          <span class="lang-zh">IEEE MultiMedia，最終修訂中 &middot; <a href="https://github.com/lplpp163/DDFT">程式碼</a></span>
         </div>
       </div>
 
@@ -586,7 +610,11 @@
         <span class="tag">PyTorch</span>
         <span class="tag">Deep Learning</span>
         <span class="tag">Computer Vision</span>
+        <span class="tag">ONNX</span>
+        <span class="tag">TensorRT</span>
+        <span class="tag">NVIDIA Jetson</span>
         <span class="tag">ROS</span>
+        <span class="tag">Flutter (Dart)</span>
         <span class="tag">Android (Kotlin)</span>
         <span class="tag">Unity</span>
         <span class="tag">Git</span>
